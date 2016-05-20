@@ -13,7 +13,7 @@ public class EntityManagerProducer {
 	private EntityManagerFactory factory;
 
 	public EntityManagerProducer() {
-		this.factory = Persistence.createEntityManagerFactory("EstacionamentoPU");
+		this.factory = Persistence.createEntityManagerFactory("EstudoJavaPU");
 	}
 
 	@Produces
