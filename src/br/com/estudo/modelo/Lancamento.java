@@ -24,7 +24,7 @@ import br.com.estudo.enumerdor.TipoLancamento;
 public class Lancamento implements Serializable {
 
 	private Long id;
-	private Pesssoa pessoa;
+	private Pessoa pessoa;
 	private String descricao;
 	private BigDecimal valor;
 	private TipoLancamento tipo;
@@ -43,11 +43,11 @@ public class Lancamento implements Serializable {
 
 	@ManyToOne(optional = false)
 	@JoinColumn(name = "pessoa_id")
-	public Pesssoa getPessoa() {
+	public Pessoa getPessoa() {
 		return pessoa;
 	}
 
-	public void setPessoa(Pesssoa pessoa) {
+	public void setPessoa(Pessoa pessoa) {
 		this.pessoa = pessoa;
 	}
 

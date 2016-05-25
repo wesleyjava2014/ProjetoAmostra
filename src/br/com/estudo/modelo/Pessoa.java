@@ -11,10 +11,20 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "pessoa")
-public class Pesssoa implements Serializable {
+public class Pessoa implements Serializable {
 
 	private Long id;
 	private String nome;
+
+	public Pessoa() {
+		super();
+	}
+
+	public Pessoa(Long id, String nome) {
+		super();
+		this.id = id;
+		this.nome = nome;
+	}
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -51,7 +61,7 @@ public class Pesssoa implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Pesssoa other = (Pesssoa) obj;
+		Pessoa other = (Pessoa) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
