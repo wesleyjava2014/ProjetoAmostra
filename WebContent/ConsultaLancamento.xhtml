@@ -1,58 +1,59 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition template="WEB-INF/template/Layout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:h="http://xmlns.jcp.org/jsf/html">
-<h:head>
-	<meta charset="utf-8" />
-	<title>Consulta de lançamentos</title>
-</h:head>
-<h:body>
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
 	<f:metadata>
 		<f:viewAction action="#{consultaLancamentosBean.consultar}"></f:viewAction>
 	</f:metadata>
-	<h1>Consulta de lançamentos</h1>
+	<ui:define name="titulo"> Consulta Lançamento</ui:define>
 
-	<h:form id="frm">
-		<h:dataTable value="#{consultaLancamentosBean.lancamentos}"
-			var="lancamento" border="1" cellspacing="0" cellpadding="2">
-			<h:column>
-				<f:facet name="header">
-					<h:outputText value="Pessoa" />
-				</f:facet>
-				<h:outputText value="#{lancamento.pessoa.nome}" />
-			</h:column>
-			<h:column>
-				<f:facet name="header">
-					<h:outputText value="Descrição" />
-				</f:facet>
-				<h:outputText value="#{lancamento.descricao}" />
-			</h:column>
-			<h:column>
-				<f:facet name="header">
-					<h:outputText value="Tipo" />
-				</f:facet>
-				<h:outputText value="#{lancamento.tipo}" />
-			</h:column>
-			<h:column>
-				<f:facet name="header">
-					<h:outputText value="Valor" />
-				</f:facet>
-				<h:outputText value="#{lancamento.valor}" />
-			</h:column>
-			<h:column>
-				<f:facet name="header">
-					<h:outputText value="Data de Vencimento" />
-				</f:facet>
-				<h:outputText value="#{lancamento.dataVencimento}" />
-			</h:column>
-			<h:column>
-				<f:facet name="header">
-					<h:outputText value="Data de Pagamento" />
-				</f:facet>
-				<h:outputText value="#{lancamento.dataPagamento}" />
-			</h:column>
+	<ui:define name="corpo">
+		<h1>Consulta lançamentos</h1>
 
-		</h:dataTable>
-	</h:form>
-</h:body>
-</html>
+		<h:form id="frm">
+			<h:dataTable value="#{consultaLancamentosBean.lancamentos}"
+				var="lancamento" border="1" cellspacing="0" cellpadding="2">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Pessoa" />
+					</f:facet>
+					<h:outputText value="#{lancamento.pessoa.nome}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Descrição" />
+					</f:facet>
+					<h:outputText value="#{lancamento.descricao}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Tipo" />
+					</f:facet>
+					<h:outputText value="#{lancamento.tipo}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Valor" />
+					</f:facet>
+					<h:outputText value="#{lancamento.valor}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Data de Vencimento" />
+					</f:facet>
+					<h:outputText value="#{lancamento.dataVencimento}" />
+				</h:column>
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Data de Pagamento" />
+					</f:facet>
+					<h:outputText value="#{lancamento.dataPagamento}" />
+				</h:column>
+
+			</h:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>

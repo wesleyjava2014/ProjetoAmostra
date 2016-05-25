@@ -1,10 +1,23 @@
 <!DOCTYPE html>
-<html>
-<head>
-<meta charset="ISO-8859-1">
-<title>Insert title here</title>
-</head>
-<body>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<h:head>
+	<meta charset="utf-8" />
+	<title><ui:insert name="titulo">Sistema Estudo Java</ui:insert>
+	</title>
+	<h:outputStylesheet library="css" name="estilo.css"></h:outputStylesheet>
+</h:head>
+<h:body>
+	<header>
+		<h:graphicImage library="imgs" name="logo.png" />
+	</header>
 
-</body>
+	<div id="conteudo">
+		<ui:insert name="corpo" />
+	</div>
+
+	<footer> Sistema de Estudo JAVA! </footer>
+</h:body>
 </html>

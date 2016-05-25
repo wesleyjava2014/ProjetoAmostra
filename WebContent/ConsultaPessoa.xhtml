@@ -1,27 +1,29 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml"
+<ui:composition template="WEB-INF/template/Layout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://xmlns.jcp.org/jsf/core"
-	xmlns:h="http://xmlns.jcp.org/jsf/html">
-<h:head>
-	<meta charset="utf-8" />
-	<title>Consulta de pessoa</title>
-</h:head>
-<h:body>
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
 	<f:metadata>
 		<f:viewAction action="#{consultaPessoaBean.consultarPessoa}"></f:viewAction>
 	</f:metadata>
-	<h1>Consulta de lançamentos</h1>
 
-	<h:form id="frm">
-		<h:dataTable value="#{consultaPessoaBean.pessoas}" var="pessoa"
-			border="1" cellspacing="0" cellpadding="2">
-			<h:column>
-				<f:facet name="header">
-					<h:outputText value="Nome" />
-				</f:facet>
-				<h:outputText value="#{pessoa.nome}" />
-			</h:column>
-		</h:dataTable>
-	</h:form>
-</h:body>
-</html>
+	<ui:define name="titulo">Consulta Pessoa</ui:define>
+
+	<ui:define name="corpo">
+		<h1>Consulta Pessoa</h1>
+
+		<h:form id="frm">
+			<h:dataTable value="#{consultaPessoaBean.pessoas}" var="pessoa"
+				border="1" cellspacing="0" cellpadding="2">
+				<h:column>
+					<f:facet name="header">
+						<h:outputText value="Nome" />
+					</f:facet>
+					<h:outputText value="#{pessoa.nome}" />
+				</h:column>
+			</h:dataTable>
+		</h:form>
+	</ui:define>
+</ui:composition>
