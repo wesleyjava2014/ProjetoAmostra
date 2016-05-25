@@ -4,10 +4,13 @@ import java.io.Serializable;
 import java.util.List;
 
 import javax.faces.view.ViewScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
+import br.com.estudo.dao.LancamentoDAO;
+import br.com.estudo.dao.LancamentoRN;
 import br.com.estudo.jpaUtil.JpaUtil;
 import br.com.estudo.modelo.Lancamento;
 
@@ -18,12 +21,11 @@ public class ConsultaLancamentosBean implements Serializable {
 
 	private List<Lancamento> lancamentos;
 
+	@Inject
+	private LancamentoRN lancamentoRN;
+
 	public void consultar() {
-		EntityManager manager = JpaUtil.getEntityManager();
-		TypedQuery<Lancamento> query = manager.createQuery("from Lancamento",
-				Lancamento.class);
-		this.lancamentos = query.getResultList();
-		manager.close();
+		this.lancamentos = lancamentoRN.todosLancamentos();
 	}
 
 	public List<Lancamento> getLancamentos() {

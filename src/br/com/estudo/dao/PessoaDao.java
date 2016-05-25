@@ -7,23 +7,23 @@ import javax.inject.Inject;
 import javax.persistence.EntityManager;
 import javax.persistence.TypedQuery;
 
-import br.com.estudo.jpaUtil.JpaUtil;
-import br.com.estudo.modelo.Lancamento;
+import br.com.estudo.modelo.Pessoa;
 
-public class LancamentoDAO implements Serializable {
+public class PessoaDao implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	private EntityManager manager;
 
 	@Inject
-	public LancamentoDAO(EntityManager manager) {
+	public PessoaDao(EntityManager manager) {
 		super();
 		this.manager = manager;
 	}
 
-	protected List<Lancamento> todosLancamentos() {
-		TypedQuery<Lancamento> query = manager.createQuery("from Lancamento",
-				Lancamento.class);
+	protected List<Pessoa> todasPessoas() {
+		TypedQuery<Pessoa> query = manager.createQuery("from Pessoa",
+				Pessoa.class);
 		return query.getResultList();
 	}
+
 }
