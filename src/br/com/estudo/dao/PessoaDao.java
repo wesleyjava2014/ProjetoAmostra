@@ -20,6 +20,14 @@ public class PessoaDao implements Serializable {
 		this.manager = manager;
 	}
 
+	protected void adicionar(Pessoa pessoa) {
+		manager.persist(pessoa);
+	}
+
+	protected Pessoa porId(Long id) {
+		return manager.find(Pessoa.class, id);
+	}
+
 	protected List<Pessoa> todasPessoas() {
 		TypedQuery<Pessoa> query = manager.createQuery("from Pessoa",
 				Pessoa.class);

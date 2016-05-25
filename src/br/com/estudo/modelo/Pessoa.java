@@ -8,6 +8,9 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name = "pessoa")
@@ -36,6 +39,8 @@ public class Pessoa implements Serializable {
 		this.id = id;
 	}
 
+	@NotEmpty
+	@Size(max = 60)
 	@Column(length = 60, nullable = false)
 	public String getNome() {
 		return nome;

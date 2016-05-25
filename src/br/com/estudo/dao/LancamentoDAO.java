@@ -21,6 +21,14 @@ public class LancamentoDAO implements Serializable {
 		this.manager = manager;
 	}
 
+	protected Lancamento guardar(Lancamento lancamento) {
+		return this.manager.merge(lancamento);
+	}
+
+	protected Lancamento porId(Long id) {
+		return this.manager.find(Lancamento.class, id);
+	}
+
 	protected List<Lancamento> todosLancamentos() {
 		TypedQuery<Lancamento> query = manager.createQuery("from Lancamento",
 				Lancamento.class);

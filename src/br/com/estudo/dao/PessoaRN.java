@@ -7,14 +7,22 @@ import javax.inject.Inject;
 
 import br.com.estudo.modelo.Pessoa;
 
-public class PessoaRN implements Serializable{
+public class PessoaRN implements Serializable {
 	private static final long serialVersionUID = 1L;
-	
+
 	@Inject
 	private PessoaDao dao;
-	
-	public List<Pessoa> todasPessoas(){
-		return dao.todasPessoas();
+
+	public void adicionar(Pessoa pessoa) {
+		this.dao.adicionar(pessoa);
+	}
+
+	public Pessoa porId(Long id) {
+		return this.dao.porId(id);
+	}
+
+	public List<Pessoa> todasPessoas() {
+		return this.dao.todasPessoas();
 	}
 
 }
