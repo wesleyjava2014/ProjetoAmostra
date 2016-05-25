@@ -26,6 +26,18 @@ public class LancamentoRN implements Serializable {
 		this.dao.guardar(lancamento);
 	}
 
+	@Transactional
+	public void excluir(Lancamento lancamento) throws NegocioException {
+		lancamento = this.dao.porId(lancamento.getId());
+
+		if (lancamento.getDataPagamento() != null) {
+			throw new NegocioException(
+					"Não é possível excluir um lançamento pago!");
+		}
+
+		this.dao.remover(lancamento);
+	}
+
 	public Lancamento porId(Long id) {
 		return this.dao.porId(id);
 	}

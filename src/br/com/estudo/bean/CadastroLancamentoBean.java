@@ -29,11 +29,10 @@ public class CadastroLancamentoBean implements Serializable {
 	private PessoaRN pessoaRn;
 	private List<Pessoa> todasPessoas;
 
-	@PostConstruct
-	public void init() {
+	public void preprarCadastro() {
 		this.todasPessoas = pessoaRn.todasPessoas();
 		if (this.lancamento == null) {
-			this.limpar();
+			this.lancamento = new Lancamento();
 		}
 	}
 

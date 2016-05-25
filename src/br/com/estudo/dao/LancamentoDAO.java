@@ -29,6 +29,10 @@ public class LancamentoDAO implements Serializable {
 		return this.manager.find(Lancamento.class, id);
 	}
 
+	protected void remover(Lancamento lancamento) {
+		this.manager.remove(lancamento);
+	}
+
 	protected List<Lancamento> todosLancamentos() {
 		TypedQuery<Lancamento> query = manager.createQuery("from Lancamento",
 				Lancamento.class);
